@@ -1,0 +1,14 @@
+syntax = "proto3";
+package libpb ;
+option go_package="lipb";
+
+message SquareRootRequest{
+    double number =1;
+}
+message SquareRootResponse{
+    double result =1;
+}
+
+service SquareRoot{
+    rpc SquareRoot(SquareRootRequest) returns (SquareRootResponse){};
+}

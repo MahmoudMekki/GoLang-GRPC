@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package calpb;
+option go_package ="calpb";
+
+message maxrequest{
+    int32 number =1;
+}
+message maxresponse{
+    int32 result =1;
+}
+
+service Max{
+    rpc Max(stream maxrequest) returns (stream maxresponse){};
+}

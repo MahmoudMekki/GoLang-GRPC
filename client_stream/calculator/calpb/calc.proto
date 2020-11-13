@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package calpb;
+option go_package="calpb";
+
+message AVGRequest{
+    int32 number =1;
+}
+
+message AVGResponse{
+    float average =1;
+}
+
+service average{
+    rpc Average( stream AVGRequest) returns (AVGResponse){};
+}

@@ -1,0 +1,1 @@
+protoc libpb/lib.proto --go_out=plugins=grpc:.

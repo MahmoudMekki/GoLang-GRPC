@@ -1,0 +1,21 @@
+syntax = "proto3";
+package libpb;
+option go_package="libpb";
+
+message Greeting{
+    string firstname =1;
+    string lastname =2;
+}
+
+message GreetingRequest{
+    Greeting greeting =1;
+}
+
+message GreetingResponse{
+    string result =1;
+}
+
+
+service Greet{
+    rpc Greeting(GreetingRequest) returns (GreetingResponse){};
+}

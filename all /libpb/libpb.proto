@@ -1,0 +1,40 @@
+syntax = "proto3";
+package libpb;
+option go_package = "libpb";
+
+
+message SumRequest {
+    int32 Number1 =1;
+    int32 Number2 =2;
+}
+message SumResponse{
+    int32 Result =1;
+}
+message PrimeRequest{
+    int32 Number =1;
+}
+
+message PrimeResponse{
+    int32 Prime =1;
+}
+message AVGRequest{
+    int32 number =1;
+}
+
+message AVGResponse{
+    float Average =1;
+}
+
+message MaxRequest{
+    int32 Number =1;
+}
+message MaxResponse{
+    int32 Result =1;
+}
+
+service calculator{
+    rpc Adder(SumRequest) returns (SumResponse){};
+    rpc Primes(PrimeRequest) returns (stream PrimeResponse){};
+    rpc Average( stream AVGRequest) returns (AVGResponse){};
+    rpc Max(stream MaxRequest) returns (stream MaxResponse){};
+}

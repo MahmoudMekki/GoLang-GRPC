@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package bookpb;
+option go_package="bookpb";
+
+message Book{
+    string Id =1;
+    string Title =2;
+    string Author =3;
+    float price =4;
+}
+
+message CreateBookRequest{
+    Book Book =1;
+}
+
+message CreateBookResponse{
+    string Id=1;
+}
+
+message ReadBookRequest{
+    string Id =1;
+}
+message ReadBookResponse{
+    Book book =1;
+}
+
+message UpdateBookRequest{
+    Book book =1;
+}
+message UpdateBookResponse{
+    string Id =1;
+}
+message DeleteBookRequest{
+    string Id =1;
+}
+message DeleteBookResponse{
+    bool status =1;
+}
+message ListBooksRequest{
+
+}
+message ListBooksResponse{
+    Book book=1;
+}
+
+service BookStore{
+    rpc CreateBook(CreateBookRequest) returns (CreateBookResponse){};
+    rpc ReadBook(ReadBookRequest) returns (ReadBookResponse){};
+    rpc UpdateBook(UpdateBookRequest) returns (UpdateBookResponse){};
+    rpc DeleteBook(DeleteBookRequest) returns (DeleteBookResponse){};
+    rpc ListBooks (ListBooksRequest)returns (stream ListBooksResponse){};
+}

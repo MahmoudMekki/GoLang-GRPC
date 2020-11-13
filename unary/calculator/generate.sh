@@ -1,0 +1,1 @@
+protoc cal_pb/calpb.proto --go_out=plugins=grpc:.

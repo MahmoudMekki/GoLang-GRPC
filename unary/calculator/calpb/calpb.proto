@@ -1,0 +1,14 @@
+syntax = "proto3";
+package calpb;
+message SumRequest {
+    int32 number1 =1;
+    int32 number2=2;
+}
+
+message SumResponse{
+    int32 result =1;
+}
+
+service sum {
+    rpc adder(SumRequest) returns (SumResponse){};
+}
